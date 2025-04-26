@@ -1,40 +1,42 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+# Figma Camera Locations Plugin
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+## What it does
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+This is a simple Figma plugin that allows you to save and recall up to four different camera locations (viewport Location and zoom level) within your Figma canvas. This helps you quickly navigate between different areas or zoom levels of your design without manually panning and zooming each time.
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+## How to Use
 
-  https://nodejs.org/en/download/
+1.  **Save a Location:** Navigate to the view you want to save, then call one of the commands "Save Location [1-4]".
+2.  **Recall a Location:** Call the "Recall Location [1-4]" to instantly return to that saved view.
 
-Next, install TypeScript using the command:
+You can also access these commands via the Figma Quick Actions menu (Ctrl+/ or Cmd+/) by typing the name of the command.
 
-  npm install -g typescript
+## Windows Companion AutoHotkey Script (Optional)
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+The repository also includes an AutoHotkey script (`FigmaCameraLocations.ahk`) for Windows users. This script maps the save and recall actions to function keys for even faster access:
 
-  npm install --save-dev @figma/plugin-typings
+*   `Alt+F1` to `Alt+F4`: Save locations 1 to 4
+*   `F1` to `F4`: Recall locations 1 to 4
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+Feel free to edit the script to remap the shortcuts the way you prefer.
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+*Note: AutoHotkey must be installed and the script must be running for these hotkeys to work.*
 
-For more information, visit https://www.typescriptlang.org/
+## Mapping Shortcuts on macOS (Alternative)
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+If you are using macOS, you can map keyboard shortcuts to Figma plugin menu commands directly through the operating system:
 
-We recommend writing TypeScript code using Visual Studio code:
+1.  Open **System Settings** (or **System Preferences** on older macOS versions).
+2.  Go to **Keyboard** > **Keyboard Shortcuts...** > **App Shortcuts**.
+3.  Click the **+** button to add a new shortcut.
+4.  Select **Figma.app** from the Application dropdown.
+5.  In the **Menu Title** field, enter the *exact* name of the plugin command as it appears in the Figma Plugins menu (e.g., `Save Location 1`, `Recall Location 2`).
+6.  In the **Keyboard Shortcut** field, press the key combination you want to assign (e.g., `⌥F1` for Alt+F1, `F1`).
+7.  Click **Add**.
+8.  Repeat for each command you want to map.
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "npm: watch". You will have to do this again every time
-    you reopen Visual Studio Code.
+This allows you to trigger the save/recall actions using your preferred shortcuts without needing an external script on macOS.
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+## License
+
+This project is provided as-is. You are completely free to use, modify, distribute, or do whatever you want with this code. No attribution is required. Consider it public domain or under an extremely permissive license like MIT or Unlicense.

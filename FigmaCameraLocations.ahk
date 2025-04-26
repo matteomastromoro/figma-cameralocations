@@ -45,63 +45,63 @@ SafeEndAction() {
     isFigmaActionRunning := 0
 }
 
-; --- Position 1 ---
-!F1:: ; Alt+F1: Save Position 1
+; --- Location 1 ---
+!F1:: ; Alt+F1: Save Location 1
     if (!SafeStartAction("Alt", "F1"))
         return
-    PerformFigmaQuickAction("Save Position 1")
+    PerformFigmaQuickAction("Save Location 1")
     SafeEndAction()
 return
 
-F1:: ; F1: Recall Position 1
+F1:: ; F1: Recall Location 1
     if (!SafeStartAction("F1"))
         return
-    PerformFigmaQuickAction("Recall Position 1")
+    PerformFigmaQuickAction("Recall Location 1")
     SafeEndAction()
 return
 
-; --- Position 2 ---
-!F2:: ; Alt+F2: Save Position 2
+; --- Location 2 ---
+!F2:: ; Alt+F2: Save Location 2
     if (!SafeStartAction("Alt", "F2"))
         return
-    PerformFigmaQuickAction("Save Position 2")
+    PerformFigmaQuickAction("Save Location 2")
     SafeEndAction()
 return
 
-F2:: ; F2: Recall Position 2
+F2:: ; F2: Recall Location 2
     if (!SafeStartAction("F2"))
         return
-    PerformFigmaQuickAction("Recall Position 2")
+    PerformFigmaQuickAction("Recall Location 2")
     SafeEndAction()
 return
 
-; --- Position 3 ---
-!F3:: ; Alt+F3: Save Position 3
+; --- Location 3 ---
+!F3:: ; Alt+F3: Save Location 3
     if (!SafeStartAction("Alt", "F3"))
         return
-    PerformFigmaQuickAction("Save Position 3")
+    PerformFigmaQuickAction("Save Location 3")
     SafeEndAction()
 return
 
-F3:: ; F3: Recall Position 3
+F3:: ; F3: Recall Location 3
     if (!SafeStartAction("F3"))
         return
-    PerformFigmaQuickAction("Recall Position 3")
+    PerformFigmaQuickAction("Recall Location 3")
     SafeEndAction()
 return
 
-; --- Position 4 ---
-!F4:: ; Alt+F4: Save Position 4
+; --- Location 4 ---
+!F4:: ; Alt+F4: Save Location 4
     if (!SafeStartAction("Alt", "F4"))
         return
-    PerformFigmaQuickAction("Save Position 4")
+    PerformFigmaQuickAction("Save Location 4")
     SafeEndAction()
 return
 
-F4:: ; F4: Recall Position 4
+F4:: ; F4: Recall Location 4
     if (!SafeStartAction("F4"))
         return
-    PerformFigmaQuickAction("Recall Position 4")
+    PerformFigmaQuickAction("Recall Location 4")
     SafeEndAction()
 return
 

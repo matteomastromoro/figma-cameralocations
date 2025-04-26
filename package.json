@@ -1,7 +1,7 @@
 {
   "name": "cameralocations",
-  "version": "0.1.0",
-  "description": "A basic boilerplate for Figma plugin development using TypeScript and Webpack.",
+  "version": "1.0.0",
+  "description": "A figma plugin to save and recall camera locations (position and zoom properties in the canvas)",
   "main": "code.js",
   "scripts": {
     "build": "webpack",
@@ -9,7 +9,7 @@
     "lint:fix": "eslint --ext .ts,.tsx --ignore-pattern node_modules --fix .",
     "watch": "npm run build -- --watch"
   },
-  "author": "",
+  "author": "Matteo Mastromoro",
   "license": "",
   "devDependencies": {
     "@figma/eslint-plugin-figma-plugins": "*",

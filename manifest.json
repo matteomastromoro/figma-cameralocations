@@ -1,19 +1,18 @@
 {
-  "name": "Camera Locations",
+  "name": "Figma Camera Locations",
   "id": "GENERATE_PLUGIN_ID",
   "api": "1.0.0",
   "main": "dist/code.js",
-  "ui": "ui.html",
-  "editorType": ["figma"],
+  "editorType": ["figma", "figjam", "slides", "dev"],
   "menu": [
-    { "name": "Save Position 1", "command": "save1" },
-    { "name": "Save Position 2", "command": "save2" },
-    { "name": "Save Position 3", "command": "save3" },
-    { "name": "Save Position 4", "command": "save4" },
+    { "name": "Save Location 1", "command": "save1" },
+    { "name": "Save Location 2", "command": "save2" },
+    { "name": "Save Location 3", "command": "save3" },
+    { "name": "Save Location 4", "command": "save4" },
     { "separator": true },
-    { "name": "Recall Position 1", "command": "recall1" },
-    { "name": "Recall Position 2", "command": "recall2" },
-    { "name": "Recall Position 3", "command": "recall3" },
-    { "name": "Recall Position 4", "command": "recall4" }
+    { "name": "Recall Location 1", "command": "recall1" },
+    { "name": "Recall Location 2", "command": "recall2" },
+    { "name": "Recall Location 3", "command": "recall3" },
+    { "name": "Recall Location 4", "command": "recall4" }
   ]
 }
