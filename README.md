@@ -31,11 +31,24 @@ If you are using macOS, you can map keyboard shortcuts to Figma plugin menu comm
 3.  Click the **+** button to add a new shortcut.
 4.  Select **Figma.app** from the Application dropdown.
 5.  In the **Menu Title** field, enter the *exact* name of the plugin command as it appears in the Figma Plugins menu (e.g., `Save Location 1`, `Recall Location 2`).
-6.  In the **Keyboard Shortcut** field, press the key combination you want to assign (e.g., `⌥F1` for Alt+F1, `F1`).
+6.  In the **Keyboard Shortcut** field, press the key combination you want to assign (e.g., `⌥F1` for Alt+F1).
 7.  Click **Add**.
 8.  Repeat for each command you want to map.
 
 This allows you to trigger the save/recall actions using your preferred shortcuts without needing an external script on macOS.
+
+## Development
+
+If you want to modify or extend this plugin:
+
+1.  **Fork & Clone:** Fork this repository on GitHub and clone your fork locally.
+2.  **Install Dependencies:** Open a terminal in the project directory and run `npm install`.
+3.  **Build:** Run `npm run build` to compile the TypeScript code into JavaScript (`dist/code.js`). You can also run `npm run watch` to automatically rebuild when you make changes to the source files (`src/code.ts`).
+4.  **Load in Figma:**
+    *   Open Figma.
+    *   Go to **Plugins** > **Development** > **Import plugin from manifest...**
+    *   Select the `manifest.json` file located in the project directory.
+5.  **Develop:** Make your changes in the `src/code.ts` file. The plugin will automatically update in Figma if you are using `npm run watch`. Otherwise, run `npm run build` after making changes.
 
 ## License
 
