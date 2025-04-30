@@ -1,9 +1,11 @@
-
 async function saveLocation(index: number) {
-  const currentLocation = {
+  const currentLocation: { center: { x: number; y: number }; zoom: number; pageId?: string } = {
     center: figma.viewport.center,
     zoom: figma.viewport.zoom
   };
+  if (figma.editorType === 'figma' || figma.editorType === 'dev') {
+    currentLocation.pageId = figma.currentPage.id;
+  }
   const key = `cameraLocation_${index}`;
   try {
     await figma.clientStorage.setAsync(key, currentLocation);
@@ -16,11 +18,28 @@ async function saveLocation(index: number) {
 async function recallLocation(index: number) {
   const key = `cameraLocation_${index}`;
   try {
-    const savedLocation = await figma.clientStorage.getAsync(key) as { center: { x: number; y: number }; zoom: number };
+    const savedLocation = await figma.clientStorage.getAsync(key) as { center: { x: number; y: number }; zoom: number; pageId?: string };
     if (savedLocation) {
-      figma.viewport.center = savedLocation.center;
-      figma.viewport.zoom = savedLocation.zoom;
-      figma.notify(`Recalled Location ${index}`);
+      if ((figma.editorType === 'figma' || figma.editorType === 'dev') && savedLocation.pageId) {
+        const targetPage = figma.getNodeById(savedLocation.pageId);
+
+        if (targetPage && targetPage.type === 'PAGE') {
+          if (figma.currentPage.id !== targetPage.id) {
+            figma.currentPage = targetPage;
+          }
+          figma.viewport.center = savedLocation.center;
+          figma.viewport.zoom = savedLocation.zoom;
+          figma.notify(`Recalled Location ${index} on page ${targetPage.name}`);
+        } else {
+          figma.notify(`Could not find the page associated with Location ${index}. Recalling view on current page.`);
+          figma.viewport.center = savedLocation.center;
+          figma.viewport.zoom = savedLocation.zoom;
+        }
+      } else {
+        figma.viewport.center = savedLocation.center;
+        figma.viewport.zoom = savedLocation.zoom;
+        figma.notify(`Recalled Location ${index}`);
+      }
     } else {
       figma.notify(`Location ${index} not saved yet.`);
     }
