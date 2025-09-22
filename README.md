@@ -20,7 +20,7 @@ The repository also includes an AutoHotkey script (`FigmaCameraLocations.ahk`) f
 
 Feel free to edit the script to remap the shortcuts the way you prefer.
 
-*Note: AutoHotkey must be installed and the script must be running for these hotkeys to work. The file `FigmaCameraLocations_AHKv1.ahk` is an alternative version of the script for whoever still uses AHK v1.*
+*Note: AutoHotkey must be installed and the script must be running for these hotkeys to work. The way I use it is autostarting it by putting the shortcut from the script in shell:startup. The file `FigmaCameraLocations_AHKv1.ahk` is an alternative version of the script for whoever still uses the old AutoHotkey version, AHK v1.*
 
 ## Mapping Shortcuts on macOS (Alternative)
 
