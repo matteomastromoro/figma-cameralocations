@@ -35,8 +35,6 @@ If you are using macOS, you can map keyboard shortcuts to Figma plugin menu comm
 7.  Click **Add**.
 8.  Repeat for each command you want to map.
 
-This allows you to trigger the save/recall actions using your preferred shortcuts without needing an external script on macOS.
-
 ## Development
 
 If you want to modify or extend this plugin:
