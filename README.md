@@ -2,7 +2,7 @@
 
 ## What it does
 
-This is a simple Figma plugin that allows you to save and recall up to four different camera locations (viewport Location and zoom level) within your Figma canvas. This helps you quickly navigate between different areas or zoom levels of your design without manually panning and zooming each time.
+This is a simple Figma plugin that allows you to save and recall up to four different camera locations (viewport position and zoom level) within your Figma file. This helps you quickly navigate between different areas or zoom levels of your design without manually panning and zooming each time.
 
 ## How to Use
 
