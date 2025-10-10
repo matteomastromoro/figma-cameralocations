@@ -1,9 +1,11 @@
 {
   "name": "Figma Camera Locations",
-  "id": "GENERATE_PLUGIN_ID",
+  "id": "1556402448787168988",
   "api": "1.0.0",
   "main": "dist/code.js",
   "editorType": ["figma", "figjam", "slides", "dev"],
+  "networkAccess": { "allowedDomains": ["none"] },
+  "documentAccess": "dynamic-page",
   "menu": [
     { "name": "Save Location 1", "command": "save1" },
     { "name": "Save Location 2", "command": "save2" },
