@@ -1,6 +1,6 @@
 {
   "name": "Figma Camera Locations",
-  "id": "1556402448787168988",
+  "id": "1558593123105150744",
   "api": "1.0.0",
   "main": "dist/code.js",
   "editorType": ["figma", "figjam", "slides", "dev"],
