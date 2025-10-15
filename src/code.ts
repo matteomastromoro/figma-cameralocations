@@ -21,11 +21,11 @@ async function recallLocation(index: number) {
     const savedLocation = await figma.clientStorage.getAsync(key) as { center: { x: number; y: number }; zoom: number; pageId?: string };
     if (savedLocation) {
       if ((figma.editorType === 'figma' || figma.editorType === 'dev') && savedLocation.pageId) {
-        const targetPage = figma.getNodeById(savedLocation.pageId);
+        const targetPage = await figma.getNodeByIdAsync(savedLocation.pageId);
 
         if (targetPage && targetPage.type === 'PAGE') {
           if (figma.currentPage.id !== targetPage.id) {
-            figma.currentPage = targetPage;
+            await figma.setCurrentPageAsync(targetPage);
           }
           figma.viewport.center = savedLocation.center;
           figma.viewport.zoom = savedLocation.zoom;
