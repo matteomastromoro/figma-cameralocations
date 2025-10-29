@@ -5,7 +5,7 @@ SetWorkingDir(A_ScriptDir)
 ; --- Sleep times (adjust if needed) ---
 DefaultSleepTimeAfterMenu := 800
 DefaultSleepTimeAfterType := 800
-DefaultSleepTimeAfterEnter := 600
+DefaultSleepTimeAfterEnter := 200
 
 ; --- Flag to prevent overlapping actions ---
 global isFigmaActionRunning := false
