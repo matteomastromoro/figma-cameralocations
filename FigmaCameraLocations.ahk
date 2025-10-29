@@ -3,9 +3,9 @@ SendMode "Input"
 SetWorkingDir(A_ScriptDir)
 
 ; --- Sleep times (adjust if needed) ---
-DefaultSleepTimeAfterMenu := 400
-DefaultSleepTimeAfterType := 400
-DefaultSleepTimeAfterEnter := 300
+DefaultSleepTimeAfterMenu := 800
+DefaultSleepTimeAfterType := 800
+DefaultSleepTimeAfterEnter := 600
 
 ; --- Flag to prevent overlapping actions ---
 global isFigmaActionRunning := false
