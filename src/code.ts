@@ -29,7 +29,7 @@ async function recallLocation(index: number) {
           }
           figma.viewport.center = savedLocation.center;
           figma.viewport.zoom = savedLocation.zoom;
-          figma.notify(`Recalled Location ${index} on page ${targetPage.name}`);
+          figma.notify(`Recalled Location ${index} on page "${targetPage.name}"`);
         } else {
           figma.notify(`Could not find the page associated with Location ${index}. Recalling view on current page.`);
           figma.viewport.center = savedLocation.center;
