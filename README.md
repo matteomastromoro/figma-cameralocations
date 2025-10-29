@@ -11,18 +11,7 @@ This is a simple Figma plugin that allows you to save and recall up to four diff
 
 You can also access these commands via the Figma Quick Actions menu (Ctrl+/ or Cmd+/) by typing the name of the command.
 
-## Windows Companion AutoHotkey Script (Optional)
-
-The repository also includes an AutoHotkey script (`FigmaCameraLocations.ahk`) for Windows users. This script maps the save and recall actions to function keys for even faster access:
-
-*   `Alt+F1` to `Alt+F4`: Save locations 1 to 4
-*   `F1` to `F4`: Recall locations 1 to 4
-
-Feel free to edit the script to remap the shortcuts the way you prefer.
-
-*Note: AutoHotkey must be installed and the script must be running for these hotkeys to work. The way I use it is autostarting it by putting the shortcut from the script in shell:startup. The file `FigmaCameraLocations_AHKv1.ahk` is an alternative version of the script for whoever still uses the old AutoHotkey version, AHK v1.*
-
-## Mapping Shortcuts on macOS (Alternative)
+## Mapping Shortcuts on macOS (Optional)
 
 If you are using macOS, you can map keyboard shortcuts to Figma plugin menu commands directly through the operating system:
 
@@ -34,6 +23,17 @@ If you are using macOS, you can map keyboard shortcuts to Figma plugin menu comm
 6.  In the **Keyboard Shortcut** field, press the key combination you want to assign (e.g., `⌥F1` for Alt+F1).
 7.  Click **Add**.
 8.  Repeat for each command you want to map.
+
+## Windows Companion AutoHotkey Script (Optional)
+
+The repository also includes an AutoHotkey script (`FigmaCameraLocations.ahk`) for Windows users. This script maps the save and recall actions to function keys for even faster access:
+
+*   `Alt+F1` to `Alt+F4`: Save locations 1 to 4
+*   `F1` to `F4`: Recall locations 1 to 4
+
+Feel free to edit the script to remap the shortcuts the way you prefer.
+
+*Note: AutoHotkey must be installed and the script must be running for these hotkeys to work. The way I use it is autostarting it by putting the shortcut from the script in shell:startup. The file `FigmaCameraLocations_AHKv1.ahk` is an alternative version of the script for whoever still uses the old AutoHotkey version, AHK v1.*
 
 ## Development
 
