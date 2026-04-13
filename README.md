@@ -2,14 +2,30 @@
 
 ## What it does
 
-This is a simple Figma plugin that allows you to save and recall up to four different camera locations (viewport position and zoom level) within your Figma file. This helps you quickly navigate between different areas or zoom levels of your design without manually panning and zooming each time.
+This is a simple Figma plugin that allows you to save and recall up to four different camera locations (viewport position and zoom level) across your Figma files. This helps you quickly navigate between different areas or zoom levels of your designs without manually panning, zooming, or switching files each time.
 
 ## How to Use
 
-1.  **Save a Location:** Navigate to the view you want to save, then call one of the commands "Save Location [1-4]".
-2.  **Recall a Location:** Call the "Recall Location [1-4]" to instantly return to that saved view.
+1.  **Save a Location:** Navigate to the view you want to save, then call one of the commands "Save Location [1-4]". The first time you save in a file, you will be asked to paste that file's URL so that cross-file recall can jump back to it later. You only need to do this once per file.
+2.  **Recall a Location:** Call "Recall Location [1-4]" to instantly return to that saved view.
+    *   If the location is in the same file, the viewport and page are restored immediately.
+    *   If the location is in a different file, the plugin opens that file's URL and asks you to press the shortcut again once the destination file has loaded. The second press lands you on the saved page and viewport.
+3.  **Clean all saved locations:** Wipes all four saved slots and removes the current file's stored URL. Use this if you want to start fresh. The next save in any file will ask for its URL again.
 
 You can also access these commands via the Figma Quick Actions menu (Ctrl+/ or Cmd+/) by typing the name of the command.
+
+### When the URL prompt reappears
+
+The plugin stamps each file with its URL so it only has to ask once. You will only be asked again if:
+
+*   You are saving a location in a file the plugin has never seen before.
+*   You ran "Clean all saved locations" in that file, which removes its stored URL.
+
+### Notes & limitations
+
+*   Saved locations are stored per Figma account. If you sign into a different account, you will see an empty set of slots.
+*   Cross-file jumps rely on the URL you paste, so make sure it is the canonical file URL (Share > Copy link).
+*   The URL you paste is never sent anywhere. The plugin only extracts the file key from it and stores it locally on your machine, alongside the file itself. The full URL is not retained.
 
 ## Mapping Shortcuts on macOS (Optional)
 

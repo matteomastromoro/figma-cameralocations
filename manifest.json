@@ -3,6 +3,7 @@
   "id": "1558593123105150744",
   "api": "1.0.0",
   "main": "dist/code.js",
+  "ui": "ui.html",
   "editorType": ["figma", "figjam", "slides", "dev"],
   "networkAccess": { "allowedDomains": ["none"] },
   "documentAccess": "dynamic-page",
@@ -15,6 +16,8 @@
     { "name": "Recall Location 1", "command": "recall1" },
     { "name": "Recall Location 2", "command": "recall2" },
     { "name": "Recall Location 3", "command": "recall3" },
-    { "name": "Recall Location 4", "command": "recall4" }
+    { "name": "Recall Location 4", "command": "recall4" },
+    { "separator": true },
+    { "name": "Clean all saved locations", "command": "cleanAll" }
   ]
 }

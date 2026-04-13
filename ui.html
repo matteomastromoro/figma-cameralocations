@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background-color: var(--figma-color-bg); overflow: hidden; }
+    body {
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      font-size: 11px;
+      line-height: 16px;
+      color: var(--figma-color-text);
+    }
+    .section { padding: 12px; }
+    .label { font-weight: 600; margin: 0 0 6px 0; }
+    .hint {
+      color: var(--figma-color-text-secondary);
+      font-weight: 400;
+      margin: 0 0 8px 0;
+      line-height: 1.4;
+    }
+    input {
+      padding: 6px 8px;
+      width: 100%;
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      color: var(--figma-color-text);
+      background-color: var(--figma-color-bg-secondary);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      outline: none;
+    }
+    input:focus { border-color: var(--figma-color-border-selected); }
+    .err {
+      color: var(--figma-color-text-danger);
+      font-weight: 400;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .err:empty { display: none; }
+    .notice {
+      margin-top: 8px;
+      padding: 8px 10px;
+      font-size: 10px;
+      line-height: 1.4;
+      font-weight: 400;
+      color: var(--figma-color-text-warning, var(--figma-color-text));
+      background-color: var(--figma-color-bg-warning-tertiary, var(--figma-color-bg-secondary));
+      border-left: 2px solid var(--figma-color-border-warning-strong, var(--figma-color-icon-warning));
+      border-radius: 2px;
+    }
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    button {
+      height: 28px;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button.secondary {
+      color: var(--figma-color-text);
+      background-color: var(--figma-color-bg-secondary);
+    }
+    button.secondary:hover { background-color: var(--figma-color-bg-hover); }
+    button.primary {
+      color: var(--figma-color-text-onbrand);
+      background-color: var(--figma-color-bg-brand);
+    }
+    button.primary:hover { background-color: var(--figma-color-bg-brand-hover); }
+    button.primary:active { background-color: var(--figma-color-bg-brand-pressed); }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <p class="label">File URL</p>
+    <p class="hint">From the top right corner, select "Share" then "Copy Link" and paste it in the field here.</p>
+    <details class="hint">
+      <summary style="cursor: pointer; user-select: none;">Learn more</summary>
+      <div style="margin-top: 4px;">You need to paste this file's URL so cross-file recall can jump back here later. You'll only be asked again if you run "Clean all saved locations" in this file, or if the plugin has never seen this file before.</div>
+    </details>
+    <input id="url" type="text" placeholder="https://www.figma.com/design/..." autofocus />
+    <div id="err" class="err"></div>
+    <div class="notice">The URL you paste is never sent anywhere, only the file key is extracted from it and stored locally on your machine.</div>
+    <div class="actions">
+      <button id="cancel" class="secondary">Skip</button>
+      <button id="ok" class="primary">Save</button>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById('url');
+    const err = document.getElementById('err');
+    const re = /figma\.com\/(?:file|design|board|deck|slides|proto)\/[a-zA-Z0-9]+/;
+    function submit() {
+      const v = input.value.trim();
+      if (!re.test(v)) { err.textContent = 'Not a valid Figma file URL.'; return; }
+      parent.postMessage({ pluginMessage: { type: 'url', url: v } }, '*');
+    }
+    document.getElementById('ok').onclick = submit;
+    document.getElementById('cancel').onclick = () => parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+    
+    function updateSize() {
+      const height = document.querySelector('.section').getBoundingClientRect().height;
+      parent.postMessage({ pluginMessage: { type: 'resize', height: Math.ceil(height) } }, '*');
+    }
+    document.querySelector('details').addEventListener('toggle', () => setTimeout(updateSize, 0));
+    window.onload = () => setTimeout(updateSize, 0);
+  </script>
+</body>
+</html>
